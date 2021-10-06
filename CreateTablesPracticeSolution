@@ -1,0 +1,35 @@
+/* For at home: Create a table plane
+    It has the columns: plane_ID     	(up to 10 character string)
+                        plane_date_manu		DATE
+                        plane_total_hours	decimal number w/ one decimal up to 99999.9
+                        aircraft_model 		up to 10 character string (required)
+Primary key:   	plane_ID
+Foreign key:	aircraft_model (references Aircraft)
+
+Convention: name of PK constraint: <tableName>_pk
+            name of FK constraint: <FKkeyTableName>_<PKTableName>_FK
+*/
+
+CREATE TABLE plane (
+  plane_id  VARCHAR2(10),
+  plane_date_manu DATE,
+  plane_total_hours NUMBER(6,1),
+  aircraft_model VARCHAR2(10) NOT NULL,
+CONSTRAINT plane_pk PRIMARY KEY (plane_id),
+CONSTRAINT plane_aircraft_fk FOREIGN KEY (aircraft_model) REFERENCES aircraft);
+
+--For home: Add a constraint to the plane table that total plane hours are larger or equal to zero
+
+ALTER TABLE plane
+ADD (CONSTRAINT plane_totalhours_chk CHECK (plane_total_hours >=0));
+
+-- For at home: Add a new column to the PLANE table called plane_last_check.
+-- It is the date of the last full maintenance check.
+
+ALTER TABLE plane
+ADD (plane_last_check DATE);
+
+
+-- DROP table plane
+
+DROP TABLE plane PURGE;

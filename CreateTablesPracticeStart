@@ -1,0 +1,34 @@
+/* For at home: Create a table plane
+    It has the columns: plane_ID     	(up to 10 character string)
+                        plane_date_manu		DATE
+                        plane_total_hours	decimal number w/ one decimal up to 99999.9
+                        aircraft_model 		up to 10 character string (required)
+Primary key:   	plane_ID
+Foreign key:	aircraft_model (references Aircraft)
+
+Convention: name of PK constraint: <tableName>_pk
+            name of FK constraint: <FKkeyTableName>_<PKTableName>_FK
+*/
+
+
+
+
+
+
+
+--For home: Add a constraint to the plane table that total plane hours are larger or equal to zero
+
+
+
+
+
+
+-- For at home: Add a new column to the PLANE table called plane_last_check.
+-- It is the date of the last full maintenance check.
+
+
+
+
+
+-- DROP table plane
+
